@@ -47,8 +47,8 @@
     <h1 style="color: cyan;">Hello, world!</h1>
     <h3 class="text-primary">halaman awal untuk menampilkan bansos berdasarkan alamat secara umum</h3>
     <p>nyoba css sendiri</p>
-    <p>JAJAL TAUFIQ</p>
-
+    <p>JAJAL TAUFIQ nur hasan</p>
+    <p>JAJAL TAUFIQ NOMER DUA</p>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
