@@ -14,12 +14,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="src/css/style.css">
     <title>Hello, world!</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -44,8 +44,9 @@
             </div>
         </div>
     </nav>
-    <h1>Hello, world!</h1>
-    <h3>halaman awal untuk menampilkan bansos berdasarkan alamat secara umum</h3>
+    <h1 style="color: cyan;">Hello, world!</h1>
+    <h3 class="text-primary">halaman awal untuk menampilkan bansos berdasarkan alamat secara umum</h3>
+    <p>nyoba css sendiri</p>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
