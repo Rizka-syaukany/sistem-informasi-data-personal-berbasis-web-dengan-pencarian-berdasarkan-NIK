@@ -4,3 +4,23 @@
 p {
   background-color: cyan;
 }
+
+.txt-white {
+  color: white;
+}
+.bg-nav {
+  background-color: #105652;
+  color: white;
+}
+body {
+  background-image: url("/src/img/skematik.PNG");
+}
+
+.btn-warning.btn-custom {
+  background-color: #ff9300;
+  color: white;
+}
+bg-hijau-lesu {
+  background-color: #678983;
+  opacity: 90;
+}
