@@ -13,14 +13,21 @@ p {
   color: white;
 }
 body {
-  background-image: url("/src/img/skematik.PNG");
+  height: 100%;
 }
-
+.bg-img {
+  /* background-color: violet; */
+  background-image: url("/src/img/696263.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .btn-warning.btn-custom {
   background-color: #ff9300;
   color: white;
 }
-bg-hijau-lesu {
+.bg-lesu {
   background-color: #678983;
-  opacity: 90;
+  color: white;
 }
