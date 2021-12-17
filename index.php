@@ -13,7 +13,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="bg-img">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -30,7 +30,8 @@
                         <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom " href="#">Login </a>
+                        <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
+                            data-target="#loginModal">Login </a>
                     </li>
 
                 </ul>
@@ -38,12 +39,106 @@
 
     </div>
     </nav>
-    <h1 style="color: cyan;">Hello, world!</h1>
-    <h3 class="text-primary">halaman awal untuk menampilkan bansos berdasarkan alamat secara umum</h3>
-    <p>nyoba css sendiri</p>
-    <p>JAJAL TAUFIQ nur hasan</p>
-    <p>JAJAL TAUFIQ NOMER DUA</p>
+    <div class="container  mt-4 ">
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <form class="bg-lesu px-5 py-3">
+                    <select class="form-control mt-4">
+                        <option>Pilih Profinsi</option>
+                    </select>
+                    <select class="form-control mt-4">
+                        <option>Pilih Kabupaten/Kota</option>
+                    </select>
+                    <select class="form-control mt-4">
+                        <option>Pilih Kecamatan</option>
+                    </select>
+                    <select class="form-control mt-4">
+                        <option>Pilih Desa</option>
+                    </select>
+                    <label class="mt-3" for="namaNik">NAMA NIK PENERIMA MANFAAT</label>
+                    <input class="form-control " id="namaNik" type="text" placeholder="Nama/NIK penerima manfaat">
+                    <a class="btn btn-warning btn-custom mt-3 float-center" data-toggle="modal"
+                        data-target="#modalHasil">Submit </a>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <!-- modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-lesu">
+                <div class="modal-header txt-center">
+                    <h5 class="modal-title ">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-custom">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Hasil -->
+    <div class="modal" id="modalHasil" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hasil Pencarian</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
