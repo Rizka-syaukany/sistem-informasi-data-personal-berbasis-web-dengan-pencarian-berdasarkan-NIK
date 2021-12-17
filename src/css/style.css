@@ -1,9 +1,6 @@
 .coba {
   color: cyan;
 }
-p {
-  background-color: cyan;
-}
 
 .txt-white {
   color: white;
@@ -30,4 +27,7 @@ body {
 .bg-lesu {
   background-color: #678983;
   color: white;
+}
+.txt-center {
+  text-align: center;
 }
