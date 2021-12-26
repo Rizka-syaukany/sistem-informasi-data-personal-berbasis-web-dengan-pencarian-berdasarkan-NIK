@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Hello, world!</title>
 </head>
 
@@ -37,22 +40,26 @@
                 </ul>
             </div>
 
+        </nav>
     </div>
-    </nav>
+
+
     <div class="container  mt-4 ">
         <div class="row justify-content-md-center">
             <div class="col-8">
                 <form class="bg-lesu px-5 py-3">
-                    <select class="form-control mt-4">
-                        <option>Pilih Profinsi</option>
-                    </select>
-                    <select class="form-control mt-4">
+                    <div class="form-group">
+                        <select class="form-control mt-4" name="provinsi" id="provinsi">
+                            <option value=""> Pilih Provinsi</option>
+                        </select>
+                    </div>
+                    <select class="form-control mt-4" name="kabupaten" id="kabupaten">
                         <option>Pilih Kabupaten/Kota</option>
                     </select>
-                    <select class="form-control mt-4">
+                    <select class="form-control mt-4" name="Kecamatan" id="Kecamatan">
                         <option>Pilih Kecamatan</option>
                     </select>
-                    <select class="form-control mt-4">
+                    <select class="form-control mt-4" name="kelurahan" id="kelurahan">
                         <option>Pilih Desa</option>
                     </select>
                     <label class="mt-3" for="namaNik">NAMA NIK PENERIMA MANFAAT</label>
@@ -142,11 +149,68 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+    </script> -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_provinsi.php",
+            cache: false,
+            success: function(msg) {
+                $("#provinsi").html(msg);
+            }
+        });
+
+        $("#provinsi").change(function() {
+            var provinsi = $("#provinsi").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kabupaten.php",
+                data: {
+                    provinsi: provinsi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kabupaten").html(msg);
+                }
+            });
+        });
+
+        $("#kabupaten").change(function() {
+            var kabupaten = $("#kabupaten").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kecamatan.php",
+                data: {
+                    kabupaten: kabupaten
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kecamatan").html(msg);
+                }
+            });
+        });
+
+        $("#kecamatan").change(function() {
+            var kecamatan = $("#kecamatan").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kelurahan.php",
+                data: {
+                    kecamatan: kecamatan
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kelurahan").html(msg);
+                }
+            });
+        });
+    });
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
