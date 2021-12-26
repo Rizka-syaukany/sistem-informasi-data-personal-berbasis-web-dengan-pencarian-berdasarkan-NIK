@@ -50,11 +50,11 @@
                 <form class="bg-lesu px-5 py-3">
                     <div class="form-group">
                         <select class="form-control mt-4" name="provinsi" id="provinsi">
-                            <option value=""> Pilih Provinsi</option>
+                            <option value=""> </option>
                         </select>
                     </div>
                     <select class="form-control mt-4" name="kabupaten" id="kabupaten">
-                        <option>Pilih Kabupaten/Kota</option>
+                        <option></option>
                     </select>
                     <select class="form-control mt-4" name="Kecamatan" id="Kecamatan">
                         <option>Pilih Kecamatan</option>
