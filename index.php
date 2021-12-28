@@ -56,8 +56,8 @@
                     <select class="form-control mt-4" name="kabupaten" id="kabupaten">
                         <option></option>
                     </select>
-                    <select class="form-control mt-4" name="Kecamatan" id="Kecamatan">
-                        <option>Pilih Kecamatan</option>
+                    <select class="form-control mt-4" name="kecamatan" id="kecamatan">
+                        <option></option>
                     </select>
                     <select class="form-control mt-4" name="kelurahan" id="kelurahan">
                         <option>Pilih Desa</option>

@@ -2,7 +2,8 @@
 	include 'koneksi.php';
  
 	echo "<option value=''>Pilih Provinsi eheheh</option>";
- 
+	
+	// $query = "SELECT DISTINCT alamat.id_provinsi,provinsi.nama_provinsi FROM alamat INNER JOIN provinsi ON alamat.id_provinsi=provinsi.id_provinsi";
 	$query = "SELECT * FROM provinsi ORDER BY nama_provinsi ASC";
 	$dewan1 = $bansos->prepare($query);
 	$dewan1->execute();
