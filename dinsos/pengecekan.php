@@ -119,7 +119,7 @@
                         <tr>
 			            	<td style="text-align:right">BANTUAN YANG DIMILIKI</td>
 			            	<td style="text-align:center">:</td>
-			            	<td style="text-align:center"> <a href=""> Detail</a></td>
+			            	<td style="text-align:center"> <a href="detailbantuan.php"> Detail</a></td>
 			            </tr>
 		            </tbody>
 	            </table>
