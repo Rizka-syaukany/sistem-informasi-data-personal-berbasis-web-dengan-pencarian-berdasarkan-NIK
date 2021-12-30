@@ -60,12 +60,15 @@
                         <option></option>
                     </select>
                     <select class="form-control mt-4" name="kelurahan" id="kelurahan">
-                        <option>Pilih Desa</option>
+                        <option></option>
                     </select>
-                    <label class="mt-3" for="namaNik">NAMA NIK PENERIMA MANFAAT</label>
-                    <input class="form-control " id="namaNik" type="text" placeholder="Nama/NIK penerima manfaat">
-                    <a class="btn btn-warning btn-custom mt-3 float-center" data-toggle="modal"
-                        data-target="#modalHasil">Submit </a>
+                    <form action="get_nama.php" method="POST">
+                        <label class="mt-3" for="namaNik">NAMA PENERIMA MANFAAT</label>
+                        <input class="form-control " id="nama" name="nama" type="text"
+                            placeholder="Nama Penerima Manfaat">
+                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
+                            data-target="#modalHasil">Submit </a>
+                    </form>
                 </form>
             </div>
         </div>
@@ -120,24 +123,12 @@
                                     <th scope="col">Handle</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="row">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -151,10 +142,10 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script> -->
+    </script>
     <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({
@@ -207,6 +198,20 @@
                 cache: false,
                 success: function(msg) {
                     $("#kelurahan").html(msg);
+                }
+            });
+        });
+        $("#kelurahan").change(function() {
+            var kelurahan = $("#kelurahan").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_nama.php",
+                data: {
+                    kelurahan: kelurahan
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#row").html(msg);
                 }
             });
         });
