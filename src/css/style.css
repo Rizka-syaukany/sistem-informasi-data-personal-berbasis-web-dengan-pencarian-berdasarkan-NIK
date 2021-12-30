@@ -16,6 +16,7 @@ body {
   /* background-color: violet; */
   background-image: url("/src/img/696263.jpg");
   height: 100%;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,4 +31,7 @@ body {
 }
 .txt-center {
   text-align: center;
+}
+.bg-ijo {
+  background-color: #d3e4cd;
 }

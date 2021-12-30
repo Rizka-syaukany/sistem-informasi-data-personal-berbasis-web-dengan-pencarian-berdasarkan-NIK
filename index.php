@@ -16,7 +16,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body class="bg-img">
+<body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
             <a class="navbar-brand" href="#">Navbar</a>
