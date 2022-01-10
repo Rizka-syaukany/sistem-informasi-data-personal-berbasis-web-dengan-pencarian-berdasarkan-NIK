@@ -20,26 +20,32 @@
 <body class="bg-img">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="src/img/logoputih.png" width="160" height="50" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Beranda <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.php">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown no-arro">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cek Penerima Bantuan</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="index.php">Berdasarkan Alamat</a>
+                            <a class="dropdown-item" href="p_nik.php">Berdasarkan NIK</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
+                        <a class="nav-link btn btn-warning btn-custom text-white" href="login.php">Login </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom " href="login.php">Login </a>
-                    </li>
-
                 </ul>
-            </div>
 
+            </div>
         </nav>
     </div>
     <?php 
@@ -53,24 +59,24 @@
 		}
 	}
 	?>
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh">
-    
-    <form class="border shadow p-3 rounded" action="cek_login.php" method="POST" style="width: 450px;">
+    <div class="container d-flex justify-content-center align-items-center " style="min-height: 75vh">
 
-      <h2>LOGIN</h2>
+        <form class="border shadow p-3 rounded bg-lesu" action="cek_login.php" method="POST" style="width: 450px;">
 
-      <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
-      </div>
+            <h2>LOGIN</h2>
 
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-custom">Login</button>
+        </form>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -80,7 +86,7 @@
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-
+    </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
