@@ -21,7 +21,7 @@ include 'koneksi.php';
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
             <a class="navbar-brand" href="#">
-                <img src="/FP-RPL/src/img/logoputih.png" width="160" height="50"alt="">
+                <img src="src/img/logoputih.png" width="160" height="50"alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,14 +32,20 @@ include 'koneksi.php';
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#"> Cek Penerima Bantuan</a>
+                    <li class="nav-item dropdown no-arro">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"> Cek Penerima Bantuan</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="index.php">Berdasarkan Alamat</a>
+                <a class="dropdown-item" href="p-nik.php">Berdasarkan NIK</a>
+                </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
                 </ul>
+            
             </div>
         </nav>
     </div>
@@ -222,9 +228,9 @@ include 'koneksi.php';
                             ?>
                             <tbody id="row">
                                 <?php 
-                                $hasil = mysqli_query($bansos, $sql);
+                                // $hasil = mysqli_query($bansos, $sql);
                                 $no = 0;
-                                while ($data = mysqli_fetch_array($hasil)) {
+                                // while ($data = mysqli_fetch_array($hasil)) {
                                 
                                 ?>
                                 <tr>
@@ -242,7 +248,7 @@ include 'koneksi.php';
                                 </tr>
                             </tbody>
                             <?php
-                            } ?>
+                            // } ?>
                         </table>
                     </div>
                 </div>
