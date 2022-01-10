@@ -27,7 +27,6 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-warning btn-custom " data-toggle="modal" data-target="#loginModal">Login </a>
                     </li>
-
                 </ul>
             </div>
 
