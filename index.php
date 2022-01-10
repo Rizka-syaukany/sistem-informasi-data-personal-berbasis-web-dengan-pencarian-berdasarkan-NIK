@@ -5,12 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Cek Bansos</title>
@@ -38,13 +36,10 @@
                         <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
-
                 </ul>
             </div>
         </nav>
     </div>
-
-
     <div class="container  mt-4 ">
         <div class="row justify-content-md-center">
             <div class="col-8">
@@ -71,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <!-- modal Login -->
     <div class="modal fade" id="loginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -99,7 +93,6 @@
             </div>
         </div>
     </div>
-
     <!-- modal Hasil -->
     <div class="modal" id="modalHasil" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -148,7 +141,6 @@
         </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -166,7 +158,6 @@
                 $("#provinsi").html(msg);
             }
         });
-
         $("#provinsi").change(function() {
             var provinsi = $("#provinsi").val();
             $.ajax({
@@ -181,7 +172,6 @@
                 }
             });
         });
-
         $("#kabupaten").change(function() {
             var kabupaten = $("#kabupaten").val();
             $.ajax({
@@ -196,7 +186,6 @@
                 }
             });
         });
-
         $("#kecamatan").change(function() {
             var kecamatan = $("#kecamatan").val();
             $.ajax({
@@ -213,7 +202,6 @@
         });
     });
     </script>
-
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -221,5 +209,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     -->
 </body>
-
 </html>
