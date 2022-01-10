@@ -5,40 +5,36 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <title>Sistem Informasi Data Personal Berbasis Web</title>
+    <title>Cek Bansos</title>
 </head>
-
-
-<body class="bg-img">
+<body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="src/img/logoputih.png" width="160" height="50"alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
+                        <a class="nav-link text-white" href="#"> Cek Penerima Bantuan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
+                        <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
                 </ul>
-                
             </div>
         </nav>
     </div>
@@ -54,8 +50,8 @@
                     <select class="form-control mt-4" name="kabupaten" id="kabupaten">
                         <option></option>
                     </select>
-                    <select class="form-control mt-4" name="Kecamatan" id="Kecamatan">
-                        <option>Pilih Kecamatan</option>
+                    <select class="form-control mt-4" name="kecamatan" id="kecamatan">
+                        <option></option>
                     </select>
                     <select class="form-control mt-4" name="kelurahan" id="kelurahan">
                         <option>Pilih Desa</option>
@@ -68,8 +64,7 @@
             </div>
         </div>
     </div>
-
-    <!-- modal Login
+    <!-- modal Login -->
     <div class="modal fade" id="loginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-lesu">
@@ -80,23 +75,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="cek_login.php">
+                    <form>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1">
                         </div>
                         <button type="submit" class="btn btn-warning btn-custom">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div> -->
-
+    </div>
     <!-- modal Hasil -->
     <div class="modal" id="modalHasil" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -145,14 +139,13 @@
         </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script> -->
+    </script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script> 
+    </script> -->
     <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({
@@ -163,7 +156,6 @@
                 $("#provinsi").html(msg);
             }
         });
-
         $("#provinsi").change(function() {
             var provinsi = $("#provinsi").val();
             $.ajax({
@@ -178,7 +170,6 @@
                 }
             });
         });
-
         $("#kabupaten").change(function() {
             var kabupaten = $("#kabupaten").val();
             $.ajax({
@@ -193,7 +184,6 @@
                 }
             });
         });
-
         $("#kecamatan").change(function() {
             var kecamatan = $("#kecamatan").val();
             $.ajax({
@@ -210,7 +200,6 @@
         });
     });
     </script>
-
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -218,5 +207,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     -->
 </body>
-
 </html>
