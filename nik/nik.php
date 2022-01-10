@@ -37,7 +37,6 @@
 
     <div class="container">
 
-
         <h4 class="text-center">Menampilkan data Berdasarkan NIK</h4>
 
         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
