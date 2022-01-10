@@ -10,13 +10,15 @@
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Cek Bansos</title>
 </head>
+
 <body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
             <a class="navbar-brand" href="#">
-                <img src="src/img/logoputih.png" width="160" height="50"alt="">
+                <img src="/FP-RPL/src/img/logoputih.png" width="160" height="50"alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
