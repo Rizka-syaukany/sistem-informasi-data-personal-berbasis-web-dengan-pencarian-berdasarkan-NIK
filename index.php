@@ -13,8 +13,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Sistem Informasi Data Personal Berbasis Web</title>
 </head>
+
 
 <body class="bg-img">
     <div class="">
@@ -36,14 +37,11 @@
                         <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
-
                 </ul>
+                
             </div>
-
         </nav>
     </div>
-
-
     <div class="container  mt-4 ">
         <div class="row justify-content-md-center">
             <div class="col-8">
@@ -71,7 +69,7 @@
         </div>
     </div>
 
-    <!-- modal Login -->
+    <!-- modal Login
     <div class="modal fade" id="loginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-lesu">
@@ -82,22 +80,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post" action="cek_login.php">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                         </div>
                         <button type="submit" class="btn btn-warning btn-custom">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- modal Hasil -->
     <div class="modal" id="modalHasil" tabindex="-1">
@@ -151,10 +149,10 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script> -->
+    </script> 
     <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({

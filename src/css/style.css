@@ -31,3 +31,10 @@ body {
 .txt-center {
   text-align: center;
 }
+.sidenav {
+  background-image: url("../img/login-bg.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
