@@ -45,7 +45,7 @@ $email=$_SESSION["email"];
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cek Penerima Bantuan</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="p_tempat.php">Berdasarkan Alamat</a>
-                            <a class="dropdown-item" href="p_nik.php">Berdasarkan NIK</a>
+                            <a class="dropdown-item" href="../nik/nik.php">Berdasarkan NIK</a>
                         </div>
                     </li>
                     <!-- <li class="nav-item">
