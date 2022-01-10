@@ -65,22 +65,38 @@
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Umur</th>
-
-
+                    <th>Status PBI</th>
+                    <th>Periode PBI</th>
+                    <th>Status BPNT</th>
+                    <th>Periode BPNT</th>
+                    <th>Status PKH</th>
+                    <th>Periode PKH</th>
                 </tr>
             </thead>
             <?php
 
+            // $sql = "select * from penduduk where nik like '%" . $kata_kunci . "%'  order by nik asc";
+
             include "../koneksi.php";
             if (isset($_POST['kata_kunci'])) {
                 $kata_kunci = trim($_POST['kata_kunci']);
-                $sql = "select * from penduduk where nik like '%" . $kata_kunci . "%'  order by nik asc";
+                $sql = "SELECT * FROM penduduk 
+                INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk 
+                INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+                JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+                JOIN pkh ON bantuan.id_pkh=pkh.id_pkh and nik = '  $kata_kunci  ' 
+                ORDER BY nik ASC";
             } else {
-                $sql = "select * from penduduk order by nik asc";
+                return;
             }
 
+            // $sql = "SELECT * FROM penduduk 
+            //     INNER JOIN bantuan ON penduduk.id_penduduk=bantuan.id_penduduk 
+            //     INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+            //     JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+            //     JOIN pkh ON bantuan.id_pkh=pkh.id_pkh order by nik asc";
 
-            $hasil = mysqli_query($kon, $sql);
+            $hasil = mysqli_query($bansos, $sql);
             $no = 0;
             while ($data = mysqli_fetch_array($hasil)) {
                 $no++;
@@ -93,6 +109,12 @@
                         <td><?php echo $data["nama_penduduk"];   ?></td>
                         <td><?php echo $data["jenis_kelamin"];   ?></td>
                         <td><?php echo $data["umur"];   ?></td>
+                        <td><?php echo $data["status_pbi"]; ?></td>
+                        <td><?php echo $data["periode_pbi"]; ?></td>
+                        <td><?php echo $data["status_bpnt"]; ?></td>
+                        <td><?php echo $data["periode_pbi"]; ?></td>
+                        <td><?php echo $data["status_pkh"]; ?></td>
+                        <td><?php echo $data["periode_pbi"]; ?></td>
                     </tr>
                 </tbody>
             <?php
