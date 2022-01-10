@@ -2,7 +2,7 @@
 	include 'koneksi.php';
 	$provinsi = $_POST['provinsi'];
  
-	echo "<option value=''>".$provinsi."</option>";
+	echo "<option value=''>Pilih Kabupaten/Kota</option>";
 	
 	$query = "SELECT DISTINCT alamat.id_kabkota,kabkota.nama_kabkota FROM alamat INNER JOIN kabkota ON alamat.id_kabkota=kabkota.id_kabkota AND alamat.id_provinsi=?";
 	// $query = "SELECT * FROM alamat where id_provinsi=13 ORDER BY nama ASC";

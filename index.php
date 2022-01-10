@@ -1,3 +1,6 @@
+<?php 
+include 'koneksi.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,45 +8,47 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Cek Bansos</title>
 </head>
 
 <body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="src/img/logoputih.png" width="160" height="50"alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown no-arro">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"> Cek Penerima Bantuan</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="index.php">Berdasarkan Alamat</a>
+                <a class="dropdown-item" href="p-nik.php">Berdasarkan NIK</a>
+                </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
+                        <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
-
                 </ul>
+            
             </div>
-
         </nav>
     </div>
-
-
     <div class="container  mt-4 ">
         <div class="row justify-content-md-center">
             <div class="col-8">
@@ -60,17 +65,39 @@
                         <option></option>
                     </select>
                     <select class="form-control mt-4" name="kelurahan" id="kelurahan">
-                        <option>Pilih Desa</option>
+                        <option></option>
                     </select>
-                    <label class="mt-3" for="namaNik">NAMA NIK PENERIMA MANFAAT</label>
-                    <input class="form-control " id="namaNik" type="text" placeholder="Nama/NIK penerima manfaat">
-                    <a class="btn btn-warning btn-custom mt-3 float-center" data-toggle="modal"
-                        data-target="#modalHasil">Submit </a>
+                    <form action="get_nama.php" method="POST">
+                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
+                            data-target="#modalHasil">Submit </a>
+                    </form>
                 </form>
             </div>
         </div>
     </div>
 
+    <div class="container  mt-4 ">
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <form class="bg-lesu px-5 py-3">
+
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                        <label for="CekNik">Example label</label>
+                        <?php 
+                        $cari = "";
+                        if (isset($_POST['cari'])) {
+                            $cari = $_POST['cari'];
+                        }
+                        ?>
+                        <input type="text" class="form-control" id="CekNik" placeholder="Example input placeholder"
+                            name="cari" value="<?php echo $cari; ?>">
+                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
+                            data-target="#modalNIK">Submit </a>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- modal Login -->
     <div class="modal fade" id="loginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -98,10 +125,9 @@
             </div>
         </div>
     </div>
-
     <!-- modal Hasil -->
     <div class="modal" id="modalHasil" tabindex="-1">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Hasil Pencarian</h5>
@@ -114,30 +140,33 @@
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th rowspan="4" class="text-center">No</th>
+                                    <th rowspan="4" class="text-center">Nama</th>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="6" class="text-center">Banatuan</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="text-center">BPNT</th>
+                                    <th colspan="2" class="text-center">PBI</th>
+                                    <th colspan="2" class="text-center">PKH</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="row">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -146,15 +175,95 @@
             </div>
         </div>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- modal hasil NIK -->
+    <div class="modal" id="modalNIK" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hasil Pencarian</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th rowspan="4" class="text-center">No</th>
+                                    <th rowspan="4" class="text-center">Nama</th>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="6" class="text-center">Banatuan</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="text-center">BPNT</th>
+                                    <th colspan="2" class="text-center">PBI</th>
+                                    <th colspan="2" class="text-center">PKH</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                </tr>
+                            </thead>
+                            <?php 
+                            if (isset($_POST['cari'])) {
+                                $cari = trim($_POST['cari']);
+                                $sql = "SELECT * FROM penduduk 
+                                INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk 
+                                INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+                                JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+                                JOIN pkh ON bantuan.id_pkh=pkh.id_pkh and nik = '  $cari  ' 
+                                ORDER BY nik ASC";
+                            } else {
+                                
+                            }
+
+                            ?>
+                            <tbody id="row">
+                                <?php 
+                                // $hasil = mysqli_query($bansos, $sql);
+                                $no = 0;
+                                // while ($data = mysqli_fetch_array($hasil)) {
+                                
+                                ?>
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $data["nik"]; ?></td>
+                                    <td><?php echo $data["nama_penduduk"];   ?></td>
+                                    <td><?php echo $data["jenis_kelamin"];   ?></td>
+                                    <td><?php echo $data["umur"];   ?></td>
+                                    <td><?php echo $data["status_pbi"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                    <td><?php echo $data["status_bpnt"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                    <td><?php echo $data["status_pkh"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                </tr>
+                            </tbody>
+                            <?php
+                            // } ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    </script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script> -->
+    </script>
     <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({
@@ -165,7 +274,6 @@
                 $("#provinsi").html(msg);
             }
         });
-
         $("#provinsi").change(function() {
             var provinsi = $("#provinsi").val();
             $.ajax({
@@ -180,7 +288,6 @@
                 }
             });
         });
-
         $("#kabupaten").change(function() {
             var kabupaten = $("#kabupaten").val();
             $.ajax({
@@ -195,7 +302,6 @@
                 }
             });
         });
-
         $("#kecamatan").change(function() {
             var kecamatan = $("#kecamatan").val();
             $.ajax({
@@ -210,9 +316,22 @@
                 }
             });
         });
+        $("#kelurahan").change(function() {
+            var kelurahan = $("#kelurahan").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_nama.php",
+                data: {
+                    kelurahan: kelurahan
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#row").html(msg);
+                }
+            });
+        });
     });
     </script>
-
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -220,5 +339,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     -->
 </body>
-
 </html>

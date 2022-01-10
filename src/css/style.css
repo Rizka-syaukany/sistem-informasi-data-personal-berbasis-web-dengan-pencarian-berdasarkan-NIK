@@ -14,16 +14,16 @@ body {
 }
 .bg-img {
   /* background-color: violet; */
-  background-image: url("/src/img/696263.jpg");
+  /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_map_of_Indonesia.svg");*/
   height: 100%;
   width: 100%;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .btn-warning.btn-custom {
   background-color: #ff9300;
   color: white;
+  width: 100px;
 }
 .bg-lesu {
   background-color: #678983;
@@ -34,4 +34,17 @@ body {
 }
 .bg-ijo {
   background-color: #d3e4cd;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.nav-link {
+  margin-left: 30px;
+  font-size: large;
+}
+
+.nav-link:hover {
+  color: red;
 }
