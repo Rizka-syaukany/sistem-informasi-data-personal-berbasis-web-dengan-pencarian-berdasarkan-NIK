@@ -13,33 +13,34 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Cek Bansos</title>
 </head>
 
 <body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="/FP-RPL/src/img/logoputih.png" width="160" height="50"alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
+                        <a class="nav-link text-white" href="#"> Cek Penerima Bantuan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
+                        <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
                             data-target="#loginModal">Login </a>
                     </li>
 
                 </ul>
             </div>
-
         </nav>
     </div>
 
@@ -151,7 +152,7 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    </script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
     </script> -->
