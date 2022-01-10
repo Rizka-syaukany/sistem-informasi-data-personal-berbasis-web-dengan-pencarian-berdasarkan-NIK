@@ -1,8 +1,5 @@
-<?php 
-include 'koneksi.php';
-?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -18,6 +15,7 @@ include 'koneksi.php';
 </head>
 
 <body class="bg-img bg-ijo">
+
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
             <a class="navbar-brand" href="#">
@@ -41,303 +39,118 @@ include 'koneksi.php';
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-warning btn-custom text-white" data-toggle="modal"
-                            data-target="#loginModal">Login </a>
+                        <a class="nav-link btn btn-warning btn-custom text-white" href="login.php">Login </a>
                     </li>
                 </ul>
 
             </div>
         </nav>
     </div>
-    <div class="container  mt-4 ">
-        <div class="row justify-content-md-center">
-            <div class="col-8">
-                <form class="bg-lesu px-5 py-3">
-                    <div class="form-group">
-                        <select class="form-control mt-4" name="provinsi" id="provinsi">
-                            <option value=""> </option>
-                        </select>
-                    </div>
-                    <select class="form-control mt-4" name="kabupaten" id="kabupaten">
-                        <option></option>
-                    </select>
-                    <select class="form-control mt-4" name="kecamatan" id="kecamatan">
-                        <option></option>
-                    </select>
-                    <select class="form-control mt-4" name="kelurahan" id="kelurahan">
-                        <option></option>
-                    </select>
-                    <form action="get_nama.php" method="POST">
-                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
-                            data-target="#modalHasil">Submit </a>
-                    </form>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <div class="container  mt-4 ">
-        <div class="row justify-content-md-center">
-            <div class="col-8">
-                <form class="bg-lesu px-5 py-3">
+    <br>
 
-                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-                        <label for="CekNik">Example label</label>
-                        <?php 
-                        $cari = "";
-                        if (isset($_POST['cari'])) {
-                            $cari = $_POST['cari'];
-                        }
-                        ?>
-                        <input type="text" class="form-control" id="CekNik" placeholder="Example input placeholder"
-                            name="cari" value="<?php echo $cari; ?>">
-                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
-                            data-target="#modalNIK">Submit </a>
-                    </form>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- modal Login -->
-    <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-lesu">
-                <div class="modal-header txt-center">
-                    <h5 class="modal-title ">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
+    <div class="container">
+
+        <h4 class="text-center">Menampilkan data Berdasarkan NIK</h4>
+
+        <div class="container  ">
+            <div class="row justify-content-md-center">
+                <div class="col-8  mt-4 bg-lesu px-5 py-3">
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <button type="submit" class="btn btn-warning btn-custom">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal Hasil -->
-    <div class="modal" id="modalHasil" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hasil Pencarian</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th rowspan="4" class="text-center">No</th>
-                                    <th rowspan="4" class="text-center">Nama</th>
-
-                                </tr>
-                                <tr>
-                                    <th colspan="6" class="text-center">Banatuan</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2" class="text-center">BPNT</th>
-                                    <th colspan="2" class="text-center">PBI</th>
-                                    <th colspan="2" class="text-center">PKH</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                </tr>
-                            </thead>
-                            <tbody id="row">
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal hasil NIK -->
-    <div class="modal" id="modalNIK" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hasil Pencarian</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th rowspan="4" class="text-center">No</th>
-                                    <th rowspan="4" class="text-center">Nama</th>
-
-                                </tr>
-                                <tr>
-                                    <th colspan="6" class="text-center">Banatuan</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2" class="text-center">BPNT</th>
-                                    <th colspan="2" class="text-center">PBI</th>
-                                    <th colspan="2" class="text-center">PKH</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                    <th class="text-center">status</th>
-                                    <th class="text-center">periode</th>
-                                </tr>
-                            </thead>
-                            <?php 
-                            if (isset($_POST['cari'])) {
-                                $cari = trim($_POST['cari']);
-                                $sql = "SELECT * FROM penduduk 
-                                INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk 
-                                INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
-                                JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
-                                JOIN pkh ON bantuan.id_pkh=pkh.id_pkh and nik = '  $cari  ' 
-                                ORDER BY nik ASC";
-                            } else {
-                                
-                            }
-
-                            ?>
-                            <tbody id="row">
-                                <?php 
-                                // $hasil = mysqli_query($bansos, $sql);
-                                $no = 0;
-                                // while ($data = mysqli_fetch_array($hasil)) {
-                                
-                                ?>
-                                <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $data["nik"]; ?></td>
-                                    <td><?php echo $data["nama_penduduk"];   ?></td>
-                                    <td><?php echo $data["jenis_kelamin"];   ?></td>
-                                    <td><?php echo $data["umur"];   ?></td>
-                                    <td><?php echo $data["status_pbi"]; ?></td>
-                                    <td><?php echo $data["periode_pbi"]; ?></td>
-                                    <td><?php echo $data["status_bpnt"]; ?></td>
-                                    <td><?php echo $data["periode_pbi"]; ?></td>
-                                    <td><?php echo $data["status_pkh"]; ?></td>
-                                    <td><?php echo $data["periode_pbi"]; ?></td>
-                                </tr>
-                            </tbody>
+                            <label for="sel1">Kata Kunci:</label>
                             <?php
-                            // } ?>
-                        </table>
-                    </div>
+                $kata_kunci = "";
+                if (isset($_POST['kata_kunci'])) {
+                    $kata_kunci = $_POST['kata_kunci'];
+                }
+                ?>
+                            <input type="text" name="kata_kunci" value="<?php echo $kata_kunci; ?>"
+                                class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning btn-custom mt-3 float-center" value="Pilih">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $.ajax({
-            type: 'POST',
-            url: "get_provinsi.php",
-            cache: false,
-            success: function(msg) {
-                $("#provinsi").html(msg);
+        <table class="table table-bordered table-hover">
+            <br>
+            <thead class="thead-dark">
+                <tr>
+                    <th rowspan="4" class="text-center">No</th>
+                    <th rowspan="4" class="text-center">NIK</th>
+                    <th rowspan="4" class="text-center">Nama</th>
+
+                </tr>
+                <tr>
+                    <th colspan="6" class="text-center">Banatuan</th>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">BPNT</th>
+                    <th colspan="2" class="text-center">PBI</th>
+                    <th colspan="2" class="text-center">PKH</th>
+                </tr>
+                <tr>
+                    <th class="text-center">status</th>
+                    <th class="text-center">periode</th>
+                    <th class="text-center">status</th>
+                    <th class="text-center">periode</th>
+                    <th class="text-center">status</th>
+                    <th class="text-center">periode</th>
+                </tr>
+            </thead>
+            <?php
+
+            // $sql = "select * from penduduk where nik like '%" . $kata_kunci . "%'  order by nik asc";
+
+            include "koneksi.php";
+            if (isset($_POST['kata_kunci'])) {
+                $kata_kunci = trim($_POST['kata_kunci']);
+                $sql = "SELECT * FROM penduduk 
+                INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk 
+                INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+                JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+                JOIN pkh ON bantuan.id_pkh=pkh.id_pkh and nik = '  $kata_kunci  ' 
+                OR nama_penduduk like '%".$kata_kunci."%'
+                ORDER BY nik ASC";
+            } else {
+                return;
             }
-        });
-        $("#provinsi").change(function() {
-            var provinsi = $("#provinsi").val();
-            $.ajax({
-                type: 'POST',
-                url: "get_kabupaten.php",
-                data: {
-                    provinsi: provinsi
-                },
-                cache: false,
-                success: function(msg) {
-                    $("#kabupaten").html(msg);
-                }
-            });
-        });
-        $("#kabupaten").change(function() {
-            var kabupaten = $("#kabupaten").val();
-            $.ajax({
-                type: 'POST',
-                url: "get_kecamatan.php",
-                data: {
-                    kabupaten: kabupaten
-                },
-                cache: false,
-                success: function(msg) {
-                    $("#kecamatan").html(msg);
-                }
-            });
-        });
-        $("#kecamatan").change(function() {
-            var kecamatan = $("#kecamatan").val();
-            $.ajax({
-                type: 'POST',
-                url: "get_kelurahan.php",
-                data: {
-                    kecamatan: kecamatan
-                },
-                cache: false,
-                success: function(msg) {
-                    $("#kelurahan").html(msg);
-                }
-            });
-        });
-        $("#kelurahan").change(function() {
-            var kelurahan = $("#kelurahan").val();
-            $.ajax({
-                type: 'POST',
-                url: "get_nama.php",
-                data: {
-                    kelurahan: kelurahan
-                },
-                cache: false,
-                success: function(msg) {
-                    $("#row").html(msg);
-                }
-            });
-        });
-    });
-    </script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
+
+            // $sql = "SELECT * FROM penduduk 
+            //     INNER JOIN bantuan ON penduduk.id_penduduk=bantuan.id_penduduk 
+            //     INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+            //     JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+            //     JOIN pkh ON bantuan.id_pkh=pkh.id_pkh order by nik asc";
+
+            $hasil = mysqli_query($bansos, $sql);
+            $no = 0;
+            while ($data = mysqli_fetch_array($hasil)) {
+                $no++;
+
+            ?>
+            <tbody>
+                <tr>
+                    <th class="text-center"><?= $no++?> </th>
+                    <td class="text-center"><?= $data['nik']?></td>
+                    <td class="text-center"><?= $data['nama_penduduk']?></td>
+                    <td class="text-center"><?= $data['status_bpnt']?></td>
+                    <td class="text-center"><?= $data['periode_bpnt']?></td>
+                    <td class="text-center"><?= $data['status_pbi']?></td>
+                    <td class="text-center"><?= $data['periode_pbi']?></td>
+                    <td class="text-center"><?= $data['status_pkh']?></td>
+                    <td class="text-center"><?= $data['periode_pkh']?></td>
+                </tr>
+            </tbody>
+            <?php
+            }
+            ?>
+        </table>
+    </div>
+
 </body>
 
 </html>

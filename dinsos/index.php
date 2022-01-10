@@ -23,23 +23,30 @@ $email=$_SESSION["email"];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Sistem Informasi Data Personal Berbasis Web</title>
-    </head>
-    
-    <body class="bg-img">
+</head>
+
+<body class="bg-img">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="../src/img/logoputih.png" width="160" height="50" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Cek Penerima Bantuan</a>
+                        <a class="nav-link text-white" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown no-arro">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cek Penerima Bantuan</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="p_tempat.php">Berdasarkan Alamat</a>
+                            <a class="dropdown-item" href="p_nik.php">Berdasarkan NIK</a>
+                        </div>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link btn btn-warning btn-custom " data-toggle="modal"
@@ -47,16 +54,16 @@ $email=$_SESSION["email"];
                     </li> -->
                 </ul>
                 <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fas fa-user-circle fa-fw"></i> <?php echo $email ?>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle fa-fw"></i> <?php echo $email ?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
-                <a class="dropdown-item" href="../logout.php">Logout</a>
-                </div>
-                </li>
+                            <a class="dropdown-item" href="../logout.php">Logout</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -71,7 +78,7 @@ $email=$_SESSION["email"];
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script> 
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
