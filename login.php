@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Beranda</a>
+                        <a class="nav-link text-white" href="index.php">Beranda</a>
                     </li>
                     <li class="nav-item dropdown no-arro">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"

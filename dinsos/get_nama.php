@@ -4,7 +4,7 @@ include '../koneksi.php';
 $kelurahan = $_POST['kelurahan'];
 $no= 1;
 // $nama =$_POST['nama'];
-// echo $nama;
+// echo $nama;sa
 // $query = "SELECT * FROM penduduk WHERE id_alamat=? ORDER BY Nama_penduduk ASC";
 // $query = "SELECT * FROM penduduk INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk AND penduduk.id_penduduk=?";
 $query = "SELECT * FROM penduduk INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi INNER JOIN kartu_keluarga ON penduduk.id_kk=kartu_keluarga.id_kk JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt JOIN pkh ON bantuan.id_pkh=pkh.id_pkh AND penduduk.id_alamat=? ORDER BY nama_penduduk ASC";

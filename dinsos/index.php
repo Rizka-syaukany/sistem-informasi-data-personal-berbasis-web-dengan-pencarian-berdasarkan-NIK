@@ -11,7 +11,7 @@ $email=$_SESSION["email"];
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tagss -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
