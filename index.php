@@ -1,3 +1,6 @@
+<?php 
+include 'koneksi.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -63,9 +66,6 @@
                         <option></option>
                     </select>
                     <form action="get_nama.php" method="POST">
-                        <label class="mt-3" for="namaNik">NAMA PENERIMA MANFAAT</label>
-                        <input class="form-control " id="nama" name="nama" type="text"
-                            placeholder="Nama Penerima Manfaat">
                         <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
                             data-target="#modalHasil">Submit </a>
                     </form>
@@ -73,6 +73,31 @@
             </div>
         </div>
     </div>
+
+    <div class="container  mt-4 ">
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <form class="bg-lesu px-5 py-3">
+
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                        <label for="CekNik">Example label</label>
+                        <?php 
+                        $cari = "";
+                        if (isset($_POST['cari'])) {
+                            $cari = $_POST['cari'];
+                        }
+                        ?>
+                        <input type="text" class="form-control" id="CekNik" placeholder="Example input placeholder"
+                            name="cari" value="<?php echo $cari; ?>">
+                        <a class="btn btn-warning btn-custom mt-3 float-center" type="submit" data-toggle="modal"
+                            data-target="#modalNIK">Submit </a>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- modal Login -->
     <div class="modal fade" id="loginModal" tabindex="-1">
@@ -104,7 +129,7 @@
 
     <!-- modal Hasil -->
     <div class="modal" id="modalHasil" tabindex="-1">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Hasil Pencarian</h5>
@@ -117,10 +142,25 @@
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th rowspan="4" class="text-center">No</th>
+                                    <th rowspan="4" class="text-center">Nama</th>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="6" class="text-center">Banatuan</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="text-center">BPNT</th>
+                                    <th colspan="2" class="text-center">PBI</th>
+                                    <th colspan="2" class="text-center">PKH</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
                                 </tr>
                             </thead>
                             <tbody id="row">
@@ -131,6 +171,86 @@
                                     <td>@mdo</td>
                                 </tr>
                             </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal hasil NIK -->
+    <div class="modal" id="modalNIK" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hasil Pencarian</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th rowspan="4" class="text-center">No</th>
+                                    <th rowspan="4" class="text-center">Nama</th>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="6" class="text-center">Banatuan</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" class="text-center">BPNT</th>
+                                    <th colspan="2" class="text-center">PBI</th>
+                                    <th colspan="2" class="text-center">PKH</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                    <th class="text-center">status</th>
+                                    <th class="text-center">periode</th>
+                                </tr>
+                            </thead>
+                            <?php 
+                            if (isset($_POST['cari'])) {
+                                $cari = trim($_POST['cari']);
+                                $sql = "SELECT * FROM penduduk 
+                                INNER JOIN bantuan on penduduk.id_penduduk=bantuan.id_penduduk 
+                                INNER JOIN pbi ON bantuan.id_pbi=pbi.id_pbi 
+                                JOIN bpnt ON bantuan.id_bpnt=bpnt.id_bpnt 
+                                JOIN pkh ON bantuan.id_pkh=pkh.id_pkh and nik = '  $cari  ' 
+                                ORDER BY nik ASC";
+                            } else {
+                                
+                            }
+
+                            ?>
+                            <tbody id="row">
+                                <?php 
+                                $hasil = mysqli_query($bansos, $sql);
+                                $no = 0;
+                                while ($data = mysqli_fetch_array($hasil)) {
+                                
+                                ?>
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $data["nik"]; ?></td>
+                                    <td><?php echo $data["nama_penduduk"];   ?></td>
+                                    <td><?php echo $data["jenis_kelamin"];   ?></td>
+                                    <td><?php echo $data["umur"];   ?></td>
+                                    <td><?php echo $data["status_pbi"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                    <td><?php echo $data["status_bpnt"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                    <td><?php echo $data["status_pkh"]; ?></td>
+                                    <td><?php echo $data["periode_pbi"]; ?></td>
+                                </tr>
+                            </tbody>
+                            <?php
+                            } ?>
                         </table>
                     </div>
                 </div>
