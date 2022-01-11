@@ -48,3 +48,24 @@ body {
 .nav-link:hover {
   color: red;
 }
+
+.img-login {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: 40px;
+}
+
+.dropdown-item {
+  display: block;
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #ff9300;
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #678983;
+}
