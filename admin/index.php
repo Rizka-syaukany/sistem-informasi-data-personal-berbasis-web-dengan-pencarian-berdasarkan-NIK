@@ -25,10 +25,12 @@ $email=$_SESSION["email"];
     <title>Sistem Informasi Data Personal Berbasis Web</title>
     </head>
     
-    <body class="bg-img">
+    <body class="bg-img bg-ijo">
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <img src="../src/img/logoputih.png" width="160" height="50" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
